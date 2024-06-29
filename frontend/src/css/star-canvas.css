@@ -1,0 +1,15 @@
+/* StarsCanvas.css */
+
+.stars-canvas {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  
+  .stars-group {
+    transform: rotateZ(45deg); /* Equivalent to rotation={[0, 0, Math.PI / 4]} */
+  }
+  

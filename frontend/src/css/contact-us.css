@@ -1,0 +1,128 @@
+.contact-me{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 600px;
+}
+
+.contact-me .title{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-me .title span.green{
+    font-size: 30px;
+    /* margin-right: 15px; */
+}
+
+.contact-body{
+    display: flex;
+    width: 100%;
+}
+
+.contact-body .left , .contact-body .contact-form{
+    width: 50%;
+}
+
+.contact-body .left{
+    display: flex;
+    justify-content: center;
+}
+
+.contact-body .left img{
+    width: 80%;
+}
+
+.contact-form{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1;
+    flex-direction: column;
+    /* background-color: var(--l-bg); */
+}
+
+.contact-form form{
+    background-color: #222227c1;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 0 25px;
+    box-shadow: 0 0 10px 10px #25272d45;
+    padding-bottom: 20px;
+}
+
+.contact-form form .part{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: start;
+    width: 80%;
+    flex-direction: column;
+    margin-top:10px;
+}
+
+.contact-form form .part .contact-input{
+    width: 100%;
+    height:40px;
+    padding: 6px;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* .contact-form form .part .contact-input:hover, .contact-form form .part .contact-input:focus{
+    background-color: var(--c-secondary);
+} */
+
+.contact-form form button{
+    margin-top:20px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    border-radius: 4px
+}
+.contact-form form button:hover{
+    background-color:rgba(123, 123, 148, 0.895);
+}
+#description
+{
+    height:80px;
+}
+
+
+@media all and (max-width: 768px){
+    .contact-body .left{
+        display: none;
+    }
+    .contact-body .contact-form{
+        width: 100%;
+    }
+}
+
+
+@media all and (max-width: 425px){
+    .contact-me .title{
+        font-size: 15px;
+    }
+    .contact-form form{
+        width: 100%;
+        padding: 0;
+        padding-bottom: 10px;
+    }
+    .contact-form form .part{
+        width: 90%;
+    }
+}
