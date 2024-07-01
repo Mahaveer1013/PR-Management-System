@@ -15,7 +15,14 @@ app.use(cors({
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+
 }));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://mahaveer-pr-management-system.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 app.use(cookieParser())
 app.use(express.json());
 
@@ -26,6 +33,10 @@ app.get('/', (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/user', authenticateToken, userRoutes);
 app.use('/api', prRoutes);
+
+app.get('/',(req,res)=>{
+  res.send('connected successfully')
+})
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
