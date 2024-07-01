@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: 'http://mahaveer-pr-management-system',
+  origin: 'https://mahaveer-pr-management-system.vercel.app',
   credentials:true
 }));
 app.use(cookieParser())
