@@ -24,13 +24,15 @@ export const MyContext = createContext()
 
 const Main = () => {
 
+  console.log(window.location.origin);
+
   const [isAside, setIsAside] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
   const [repoData, setRepoData] = useState([]);
   const [prData, setPrData] = useState([]);
   const [userData, setUserData] = useState(null);
-  const url = `http://localhost:5000`
+  const url = window.location.origin
 
   const fetchPullRequests = async () => {
     setIsLoading(true);

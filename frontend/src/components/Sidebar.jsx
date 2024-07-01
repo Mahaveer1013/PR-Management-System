@@ -4,13 +4,21 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { MyContext } from '../pages/Main'
 import GithubLogin from './GithubLogin';
+import Cookies from 'js-cookie';
 
 const Sidebar = ({ isAside, setIsAside }) => {
 
-    const { isAuth } = useContext(MyContext)
+    const { isAuth, setIsAuth } = useContext(MyContext)
 
     const handleAside = () => {
         setIsAside(false);
+    }
+
+    const handleLogout = () => {
+        Cookies.remove('accessToken');
+        Cookies.remove('refreshToken');
+        setIsAside(false)
+        setIsAuth(false)
     }
 
     return (
@@ -26,6 +34,7 @@ const Sidebar = ({ isAside, setIsAside }) => {
                         <li onClick={handleAside}><NavLink to='/leaderboard'><FontAwesomeIcon icon={faTrophy} />&nbsp;Leaderboard</NavLink></li>
                         <li onClick={handleAside}><NavLink to='/profile/Jane'><FontAwesomeIcon icon={faCodePullRequest} />&nbsp;My Pull Requests</NavLink></li>
                         <li onClick={handleAside}><NavLink to='/contact-us'><FontAwesomeIcon icon={faContactCard} />&nbsp;Contact us</NavLink></li>
+                        <li onClick={handleLogout} className='login-side-bar'><FontAwesomeIcon icon={faContactCard} />&nbsp;Logout</li>
                     </>
                     :
                     <>
