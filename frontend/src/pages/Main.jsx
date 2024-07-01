@@ -30,7 +30,7 @@ const Main = () => {
   const [repoData, setRepoData] = useState([]);
   const [prData, setPrData] = useState([]);
   const [userData, setUserData] = useState(null);
-  const url = `http://localhost:5000`
+  const url = `https://pr-management-system.vercel.app`
 
   const fetchPullRequests = async () => {
     setIsLoading(true);
