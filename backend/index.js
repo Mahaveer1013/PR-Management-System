@@ -21,6 +21,10 @@ app.use('/auth', authRoutes);
 app.use('/user', authenticateToken, userRoutes);
 app.use('/api', prRoutes);
 
+app.get('/',(req,res)=>{
+  res.send('connected successfully')
+})
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
