@@ -10,6 +10,7 @@ api.interceptors.response.use(
     response => response,
     async error => {
         const originalRequest = error.config;
+        console.log(error);
 
         // Check if error response is due to expired access token
         if (error.response.status === 401 || error.response.status === 403) {
