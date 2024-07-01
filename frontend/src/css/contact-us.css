@@ -1,4 +1,4 @@
-.contact-me{
+.contact-me {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -7,49 +7,51 @@
     min-height: 600px;
 }
 
-.contact-me .title{
+.contact-me .title {
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.contact-me .title span.green{
+.contact-me .title span.green {
     font-size: 30px;
     /* margin-right: 15px; */
 }
 
-.contact-body{
+.contact-body {
     display: flex;
     width: 100%;
 }
 
-.contact-body .left , .contact-body .contact-form{
+.contact-body .left,
+.contact-body .contact-form {
     width: 50%;
 }
 
-.contact-body .left{
+.contact-body .left {
     display: flex;
     justify-content: center;
 }
 
-.contact-body .left img{
+.contact-body .left img {
     width: 80%;
 }
 
-.contact-form{
+.contact-form {
     margin-top: 20px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 10px;
     flex-grow: 1;
     flex-direction: column;
     /* background-color: var(--l-bg); */
 }
 
-.contact-form form{
+.contact-form form {
     background-color: #222227c1;
     width: 100%;
     flex-grow: 1;
@@ -57,35 +59,37 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    padding: 0 25px;
-    box-shadow: 0 0 10px 10px #25272d45;
+    /* padding: 5px; */
+    box-shadow: 0 0 15px 15px #25272d45;
+    border-radius: 10px;
     padding-bottom: 20px;
 }
 
-.contact-form form .part{
+.contact-form form .part {
     display: flex;
     gap: 10px;
     justify-content: center;
     align-items: start;
     width: 80%;
     flex-direction: column;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
-.contact-form form .part .contact-input{
+.contact-form form .part .contact-input {
     width: 100%;
-    height:40px;
+    height: 40px;
     padding: 6px;
     border-radius: 8px;
     outline: none;
+    border: none;
 }
 
 /* .contact-form form .part .contact-input:hover, .contact-form form .part .contact-input:focus{
     background-color: var(--c-secondary);
 } */
 
-.contact-form form button{
-    margin-top:20px;
+.contact-form form button {
+    margin-top: 20px;
     padding: 10px 20px;
     border: none;
     outline: none;
@@ -94,35 +98,39 @@
     font-size: 14px;
     border-radius: 4px
 }
-.contact-form form button:hover{
-    background-color:rgba(123, 123, 148, 0.895);
+
+.contact-form form button:hover {
+    background-color: rgba(123, 123, 148, 0.895);
 }
-#description
-{
-    height:80px;
+
+#description {
+    height: 80px;
 }
 
 
-@media all and (max-width: 768px){
-    .contact-body .left{
+@media all and (max-width: 768px) {
+    .contact-body .left {
         display: none;
     }
-    .contact-body .contact-form{
+
+    .contact-body .contact-form {
         width: 100%;
     }
 }
 
 
-@media all and (max-width: 425px){
-    .contact-me .title{
+@media all and (max-width: 425px) {
+    .contact-me .title {
         font-size: 15px;
     }
-    .contact-form form{
+
+    .contact-form form {
         width: 100%;
         padding: 0;
         padding-bottom: 10px;
     }
-    .contact-form form .part{
+
+    .contact-form form .part {
         width: 90%;
     }
 }

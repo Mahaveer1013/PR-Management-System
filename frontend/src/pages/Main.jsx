@@ -14,10 +14,11 @@ import ContactUs from './ContactUs';
 import Profile from './Profile';
 import Dashboard from './Dashboard';
 import Sidebar from '../components/Sidebar';
-import StarsCanvas from '../components/Stars';
-import Particle from '../components/Particle';
-import axios from 'axios';
+import StarsCanvas from '../assets/Stars';
+import Particle from '../assets/Particle';
+// import axios from 'axios';
 import RequireAuth from '../assets/RequireAuth';
+import api from '../api';
 
 export const MyContext = createContext()
 
@@ -25,17 +26,31 @@ const Main = () => {
 
   const [isAside, setIsAside] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   const [repoData, setRepoData] = useState([]);
   const [prData, setPrData] = useState([]);
+  const [userData, setUserData] = useState(null);
+  const url = `http://localhost:5000`
 
   const fetchPullRequests = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('https://omanhosting.online/github/pullrequests');
-      const repoResponse = await axios.get('https://omanhosting.online/github/repositories');
-      setRepoData(repoResponse.data);
-      setPrData(response.data);
+      const prResponse = await api.get('/api/prData');
+      setPrData(prev => (
+        [...prev, ...prResponse.data]
+      ));
+      const repoResponse = await api.get('/api/repoData');
+      setRepoData(prev => {
+        const existingRepoNames = prev.map(repo => repo.repoName);
+
+        // Filter out repoResponse data that is not already in prev
+        const newData = repoResponse.data.filter(repo => !existingRepoNames.includes(repo.repoName));
+
+        // Concatenate the filtered newData with prev
+        return [...prev, ...newData];
+      });
+      console.log(repoData);
+      console.log(prData);
       setIsLoading(false);
     } catch (error) {
       console.error("Failed to fetch pull requests:", error);
@@ -44,8 +59,10 @@ const Main = () => {
   };
 
   useEffect(() => {
-    fetchPullRequests();
-  }, []);
+    {
+      isAuth && fetchPullRequests();
+    }
+  }, [isAuth]);
 
 
   function ScrollToTop() {
@@ -58,8 +75,11 @@ const Main = () => {
     return null;
   }
 
+  // const value = {
+  //   repoData, prData, isLoading, setIsLoading, isAuth, setIsAuth
+  // }
   const value = {
-    repoData, setRepoData, prData, setPrData, isLoading, setIsLoading, isAuth, setIsAuth
+    url, repoData, setRepoData, prData, setPrData, isLoading, setIsLoading, isAuth, setIsAuth, userData, setUserData
   }
 
   return (

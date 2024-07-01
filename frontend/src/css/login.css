@@ -1,0 +1,112 @@
+.container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header {
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: whitesmoke;
+
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.form-group form {
+    background-color: var(--bg-secondary-transparent);
+    width: 600px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 25px;
+    box-shadow: 0 0px 10px 10px var(--bg-secondary-hover);
+
+}
+
+.form-group form .form-elements {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.form-group form .form-elements .name {
+    width: 80%;
+    height: 40px;
+    padding: 6px;
+    border-radius: 15px;
+    outline: none;
+}
+
+.form-group form .form-elements .name:hover,
+.form-group form .name .name:focus {
+    background-color: var(--c-secondary);
+}
+
+.form-group form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    border-radius: 4px
+}
+
+.form-group form button:hover {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    gap: 5px;
+    font-size: 20px;
+    border-radius: 15px;
+    background-color: alice rgba(123, 123, 148, 0.895);
+}
+
+
+@media all and (max-width: 425px) {
+    .form-conrol .title {
+        font-size: 15px;
+    }
+
+    .form-control form {
+        width: 10%;
+    }
+
+    .name {
+        padding: 10px;
+        min-width: 300px;
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .container .header {
+        font-size: 30px;
+        margin-right: 15px;
+
+    }
+
+}

@@ -8,6 +8,7 @@ aside{
     z-index: 3;
     background-color: var(--l-bg);
     transition: transform .5s ease;
+    overflow: hidden;
 }
 
 aside.open{
@@ -60,8 +61,19 @@ aside .nav li a{
     align-items: center;
 }
 
-aside .nav li a.active{
+aside .nav li a.active, .login-side-bar:hover , .login-side-bar:hover button{
     color: rgb(12, 220, 12);
+}
+
+.login-side-bar{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 0 0 20px;
+}
+
+.login-side-bar .login-home{
+    align-items: start;
 }
 
 @media all and (max-width:768px) {

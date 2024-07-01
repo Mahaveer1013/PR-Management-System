@@ -82,27 +82,36 @@
 .user-card .top {
     height: 70px;
     width: 100%;
+    gap: 5px;
     display: flex;
 }
 
 .user-card .top .left {
-    width: 30%;
+    width: 20%;
 }
 
 .user-card .top .left img {
-    width: 75%;
+    width: 100%;
     border-radius: 50%;
 }
 
 .user-card .top .right {
     width: 60%;
     height: 100%;
-    margin: auto;
+    margin: 0 5px;
+    flex-grow: 1;
     font-size: 16px;
     display: flex;
     flex-direction: column;
     gap: 6px;
     font-size: 16px;
+}
+
+.user-card .top .right h3, .user-card .top .right h5{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+    width: 100%;
 }
 
 .user-card .top .right h4 {

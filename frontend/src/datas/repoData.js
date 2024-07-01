@@ -1,4 +1,4 @@
-const repoData = [
+export const repoData = [
     {
       repoName: "Flask Chat App",
       creatorName: "Mahaveer1013",
@@ -78,5 +78,4 @@ const repoData = [
     }
   ];
   
-  export default repoData;
   

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-login-github": "^1.0.8"
+  }
+}

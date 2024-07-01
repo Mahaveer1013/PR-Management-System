@@ -1,26 +1,27 @@
-.home{
+.home {
     display: flex;
     flex-direction: column;
 }
 
-.home .title{
+.home .title {
     width: 100%;
     text-align: center;
     font-size: 50px;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-weight: 700;
     color: #18c718;
     letter-spacing: 1px;
 }
 
-.hero{
+.hero {
     display: flex;
     min-height: calc(100vh - 300px);
     height: auto;
     padding: 0 20px;
 }
 
-.hero .left{
+.hero .left {
     width: 50%;
     height: 100%;
     display: flex;
@@ -32,102 +33,97 @@
     padding-left: 30px;
 }
 
-.hero .left h1{
+.hero .left h1 {
     font-size: 40px;
     text-align: center;
 }
 
-.hero .left h3{
+.hero .left h3 {
     margin: 30px 0;
     text-align: center;
 }
 
-.hero .left p{
+.hero .left p {
     color: #10df10;
     margin-top: 15px;
     font-weight: 600;
 }
 
-.hero .links{
+.hero .links {
     display: flex;
     gap: 10px;
 }
 
-.hero .links a{
-    color: white;
-    background-color: var(--l-bg);
-    padding: 10px 25px;
-    border-radius: 10px;
-    font-weight: 600;
+.hero .links .login-home:hover{
+    background-color: #ffffff;
 }
 
-.hero .links a:first-child{
+.hero .links div button{
+    color: rgb(0, 0, 0);
+}
+
+.hero .links a:first-child {
     color: black;
-    background-color: white;
+    background-color: transparent;
+
 }
 
-.hero .links a:hover{
+.hero .links .login-home:hover a {
     color: rgb(13, 194, 13);
 }
 
-.hero .right{
+.hero .right {
     width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.hero .right img{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.hero .right:nth-child(2){
+    margin-bottom: 10%;
 }
 
-.home section{
+.home section {
     margin: 30px 60px;
     padding: 20px;
     letter-spacing: 1px;
     border-radius: 10px;
 }
 
-.home section h1{
+.home section h1 {
     color: white;
     margin-bottom: 20px;
 }
 
-.home section p{
+.home section p {
     color: #ddd;
     margin-left: 20px;
     font-size: 18px;
 }
 
-.home .what-soc{
+.home .what-soc {
     display: flex;
     flex-direction: column;
     gap: 20px;
     background-color: #2b2a37c1;
 }
 
-.home .what-soc span.green{
+.home .what-soc span.green {
     color: #18c718;
 }
 
-.home .what-soc .quote{
+.home .what-soc .quote {
     width: 50%;
     align-self: center;
     padding: 20px;
-    border: 1px solid #d7b415;
-    border-left: 5px solid #d7b415;
+    border: 1px solid #534e6f;
+    border-left: 5px solid #534e6f;
     border-radius: 0 5px 5px 0;
 }
 
-.what-soc h1{
+.what-soc h1 {
     display: flex;
     align-items: center;
 }
 
-.what-soc h1 img{
+.what-soc h1 img {
     width: 50px;
     height: 50px;
     padding: 5px;
@@ -136,62 +132,193 @@
     background-color: aliceblue;
 }
 
+.hero .login-home {
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    padding: 10px 15px;
+    height: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #d2d2d2;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.partners-container{
+    width: 100%;
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.partners-div{
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    padding: 0 30px;
+    overflow-x: auto;
+}
+
+.partners-div::-webkit-scrollbar{
+    width: 0px;
+}
+
+.partner-slide{
+    min-width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.partner-slide img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.partner-slide .partner-name{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.partner-left, .partner-right{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--l-bg);
+}
+
+.partner-left:hover, .partner-right:hover{
+    background-color: var(--bg);
+}
+
+.partner-left{
+    left: -30px;
+}
+
+.partner-right{
+    right: -30px;
+}
+
+.partner-name{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.partner-name .mem-name{
+    color: #10df10;
+}
 
 @media all and (max-width:768px) {
-    .home .title p{
+    .home .title p {
         font-size: 40px;
         padding: 0 100px;
     }
-    .home .hero{
+
+    .home .hero {
         padding: 30px;
         margin-top: 20px;
+        flex-direction: column-reverse;
     }
-    .hero .left h1{
+
+    .hero .left, .hero .right{
+        width: 100%;
+    }
+
+    .hero .left h1 {
         font-size: 30px;
     }
-    .hero .left p{
+
+    .hero .left p {
         text-align: center;
+    }
+    section.partners{
+        padding: 0;
+        margin: 30px;
     }
 }
 
 @media all and (max-width:426px) {
-    .hero{
+    .hero {
         flex-direction: column-reverse;
     }
-    .hero .left, .hero .right{
+
+    .hero .left {
         width: 100%;
         gap: 0;
         padding-left: 0;
     }
-    .hero .right img{
-        width: 50%;
-    }
-    .home .hero{
+
+    .home .hero {
         padding: 0 10px;
         margin-top: 0;
     }
-    .home .title p{
+
+    .home .title p {
         font-size: 28px;
         padding: 0 10px;
     }
-    .hero .left h1{
+
+    .hero .left h1 {
         font-size: 25px;
     }
-    .home section{
+
+    .home section {
         margin: 10px;
         padding: 10px;
     }
-    .home section h1{
+
+    .home section h1 {
         margin-bottom: 0;
     }
-    .home .what-soc{
+
+    .home .what-soc {
         margin-top: 30px;
     }
-    .home section p{
+
+    .home section p {
         font-size: 16px;
         margin-left: 5px;
     }
-    .home .what-soc .quote{
+
+    .home .what-soc .quote {
         width: 90%;
+    }
+
+    .partner-left, .partner-right{
+        width: 30px;
+        height: 30px;
+    }
+    .partner-left{
+        left: -15px;
+    }
+    
+    .partner-right{
+        right: -15px;
+    }
+
+    .partner-slide{
+        min-width: 200px;
+        width: 200px;
+    }
+    .partners-div::-webkit-scrollbar{
+        width: auto;
     }
 }

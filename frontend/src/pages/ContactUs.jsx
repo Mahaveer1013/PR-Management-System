@@ -1,7 +1,7 @@
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import logo from '../images/background-DHeaefIu.svg'
+import EarthCanvas from '../assets/canvas/Earth';
 
 export default function ContactUs() {
 
@@ -12,17 +12,17 @@ export default function ContactUs() {
       </div>
       <div className="contact-body">
         <div className="left">
-          <img src={logo} alt={logo} />
+          <EarthCanvas />
         </div>
         <div className="contact-form">
           <form className='contact-me-form' >
             <div className="part">
-              <label htmlFor="subject">Name: </label>
-              <input type="text" id='subject' placeholder='Your Name' name='subject' className='contact-input' />
+              <label htmlFor="subject">Name </label>
+              <input type="text" id='subject' placeholder="What' s your name?" name='subject' className='contact-input' />
             </div>
             <div className="part">
-              <label htmlFor="subject">Email id: </label>
-              <input type="text" id='subject' placeholder='Your Email Id:' name='subject' className='contact-input' />
+              <label htmlFor="subject">Email id </label>
+              <input type="text" id='subject' placeholder="What' s your email?" name='subject' className='contact-input' />
             </div>
 
             <div className="part">
@@ -33,7 +33,7 @@ export default function ContactUs() {
             </div>
             <div className="part">
               <label htmlFor="description">Message </label>
-              <textarea id='description' placeholder='Message Us' name='description' className='contact-input'
+              <textarea id='description' placeholder='What do you wanna say?' name='description' className='contact-input'
               />
             </div>
             <button type="submit">
