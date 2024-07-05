@@ -60,7 +60,7 @@ export const githubCallback = async (req, res) => {
       //sameSite: 'none', // Set 'sameSite' to 'none' for cross-site cookies
     });
 
-    const frontendUrl = `http://localhost:3000`;
+    const frontendUrl = process.env.FRONTEND_URL;
     res.redirect(frontendUrl);
   } catch (error) {
     console.error('Error during GitHub OAuth:', error);
