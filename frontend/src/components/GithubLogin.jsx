@@ -18,7 +18,7 @@ const GithubLogin = ({ content }) => {
         setUserData(response.data);
         navigate('/');
       } catch (error) {
-        console.log("Error fetching user data:", error);
+        console.log("Unauthorized user...");
       } finally {
         setIsLoading(false);
       }
