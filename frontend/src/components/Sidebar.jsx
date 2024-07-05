@@ -14,11 +14,15 @@ const Sidebar = ({ isAside, setIsAside }) => {
         setIsAside(false);
     }
 
-    const handleLogout = async() => {
-        const response = await api.get('/auth/logout')
-        console.log('logged out 2');
-        setIsAside(false)
-        setIsAuth(false)
+    const handleLogout = async () => {
+        try {
+            const response = await api.get('/auth/logout')
+            console.log(response);
+            setIsAside(false)
+            setIsAuth(false)
+        } catch {
+            console.log('Error in Logout')
+        }
     }
 
     return (
@@ -40,7 +44,7 @@ const Sidebar = ({ isAside, setIsAside }) => {
                     :
                     <>
                         <li onClick={handleAside}><NavLink to='/contact-us'><FontAwesomeIcon icon={faContactCard} />&nbsp;Contact us</NavLink></li>
-                        <li onClick={handleAside} className='login-side-bar'><GithubLogin content='Dashboard' /></li>
+                        <li onClick={handleAside} className='login-side-bar'><GithubLogin content='Sign in via Github' /></li>
                     </>
                 }
             </ul>
