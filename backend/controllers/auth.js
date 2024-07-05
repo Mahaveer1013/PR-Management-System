@@ -48,7 +48,7 @@ export const githubCallback = async (req, res) => {
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
       maxAge: 3600000,
-      //secure: false, // Set 'secure' to true in production (requires HTTPS)
+      secure: true, // Set 'secure' to true in production (requires HTTPS)
       sameSite: 'None', // Set 'sameSite' to 'none' for cross-site cookies
     });
 
@@ -56,7 +56,7 @@ export const githubCallback = async (req, res) => {
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
       maxAge: 2592000000,
-      //secure: false, // Set 'secure' to true in production (requires HTTPS)
+      secure: true, // Set 'secure' to true in production (requires HTTPS)
       sameSite: 'None', // Set 'sameSite' to 'none' for cross-site cookies
     });
 
