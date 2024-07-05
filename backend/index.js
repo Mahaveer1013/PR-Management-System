@@ -12,7 +12,7 @@ dotenv.config();
 // origin: ['http://localhost:3000', 'https://mahaveer-pr-management-system.vercel.app/'],
 const app = express();
 app.use(cors({
-origin: ['http://localhost:3000', 'https://mahaveer-pr-management-system.vercel.app'],
+origin: ['http://localhost:3000', process.env.FRONTEND_URL],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
