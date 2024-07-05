@@ -34,7 +34,7 @@ const renewToken = (req,res) => {
       httpOnly: true,
       maxAge: 3600000,
       //secure: false, // Set 'secure' to true in production (requires HTTPS)
-      //sameSite: 'none', // Set 'sameSite' to 'none' for cross-site cookies
+      sameSite: 'None', // Set 'sameSite' to 'none' for cross-site cookies
     });
     req.user = user;
     renewed = true;

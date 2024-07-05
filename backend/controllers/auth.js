@@ -49,7 +49,7 @@ export const githubCallback = async (req, res) => {
       httpOnly: true,
       maxAge: 3600000,
       //secure: false, // Set 'secure' to true in production (requires HTTPS)
-      //sameSite: 'none', // Set 'sameSite' to 'none' for cross-site cookies
+      sameSite: 'None', // Set 'sameSite' to 'none' for cross-site cookies
     });
 
     const refreshToken = generateRefreshToken(myData)
@@ -57,7 +57,7 @@ export const githubCallback = async (req, res) => {
       httpOnly: true,
       maxAge: 2592000000,
       //secure: false, // Set 'secure' to true in production (requires HTTPS)
-      //sameSite: 'none', // Set 'sameSite' to 'none' for cross-site cookies
+      sameSite: 'None', // Set 'sameSite' to 'none' for cross-site cookies
     });
 
     const frontendUrl = process.env.FRONTEND_URL;
