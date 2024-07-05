@@ -41,11 +41,10 @@ const Main = () => {
       const repoResponse = await api.get('/api/repoData');
       setRepoData(prev => {
         const existingRepoNames = prev.map(repo => repo.repoName);
+        const newData = Array.isArray(repoResponse.data) 
+    ? repoResponse.data.filter(repo => !existingRepoNames.includes(repo.repoName))
+    : [];
 
-        // Filter out repoResponse data that is not already in prev
-        const newData = repoResponse.data.filter(repo => !existingRepoNames.includes(repo.repoName));
-
-        // Concatenate the filtered newData with prev
         return [...prev, ...newData];
       });
       console.log(repoData);

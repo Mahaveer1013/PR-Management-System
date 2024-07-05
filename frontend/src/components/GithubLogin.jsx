@@ -16,7 +16,6 @@ const GithubLogin = ({ content }) => {
         const response = await api.get('/user');
         setIsAuth(true);
         setUserData(response.data);
-        console.log('User data:', response.data);
         navigate('/');
       } catch (error) {
         console.log("Error fetching user data:", error);
