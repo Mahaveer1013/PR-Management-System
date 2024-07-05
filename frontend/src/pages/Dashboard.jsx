@@ -36,6 +36,7 @@ const Dashboard = ({ filter }) => {
                 repoName={pr.repoName}
                 prId={pr.prId}
                 title={pr.title}
+                name={pr.name}
                 requesterName={pr.requesterName}
                 requestedTime={pr.requestedTime}
                 prStatus={pr.prStatus}
@@ -109,6 +110,7 @@ const Dashboard = ({ filter }) => {
                 repoName={pr.repoName}
                 prId={pr.prId}
                 title={pr.title}
+                name={pr.name}
                 requesterName={pr.requesterName}
                 requestedTime={pr.requestedTime}
                 prStatus={pr.prStatus}
@@ -161,7 +163,8 @@ const Dashboard = ({ filter }) => {
               repoName={pullReq.repoName}
               prId={pullReq.prId}
               title={pullReq.title}
-              requesterName={pullReq.requesterName}
+                name={pullReq.name}
+                requesterName={pullReq.requesterName}
               requestedTime={pullReq.requestedTime}
               prStatus={pullReq.prStatus}
               totalPR={totalReq}

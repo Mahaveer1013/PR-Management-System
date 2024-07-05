@@ -16,7 +16,6 @@ import Dashboard from './Dashboard';
 import Sidebar from '../components/Sidebar';
 import StarsCanvas from '../assets/Stars';
 import Particle from '../assets/Particle';
-// import axios from 'axios';
 import RequireAuth from '../assets/RequireAuth';
 import api from '../api';
 
@@ -24,15 +23,13 @@ export const MyContext = createContext()
 
 const Main = () => {
 
-  console.log(window.location.origin);
-
   const [isAside, setIsAside] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
   const [repoData, setRepoData] = useState([]);
   const [prData, setPrData] = useState([]);
   const [userData, setUserData] = useState(null);
-  const url = window.location.origin
+  const url = process.env.REACT_APP_URL
 
   const fetchPullRequests = async () => {
     setIsLoading(true);
@@ -61,11 +58,10 @@ const Main = () => {
   };
 
   useEffect(() => {
-    {
-      isAuth && fetchPullRequests();
+    if(isAuth){
+      fetchPullRequests();
     }
   }, [isAuth]);
-
 
   function ScrollToTop() {
     const { pathname } = useLocation();
@@ -77,9 +73,6 @@ const Main = () => {
     return null;
   }
 
-  // const value = {
-  //   repoData, prData, isLoading, setIsLoading, isAuth, setIsAuth
-  // }
   const value = {
     url, repoData, setRepoData, prData, setPrData, isLoading, setIsLoading, isAuth, setIsAuth, userData, setUserData
   }

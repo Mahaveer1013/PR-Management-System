@@ -18,7 +18,7 @@ import team_4 from '../images/team_4.png'
 import team_5 from '../images/team_5.png'
 import team_6 from '../images/team_6.jpg'
 import team_7 from '../images/team_7.jpg'
-import team_8 from '../images/team_8.jpg'
+import team_8 from '../images/team_8.png'
 
 const partners = [
   { img: partner_1, name: 'GDSC Rajalakshmi Engineering College' },

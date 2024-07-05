@@ -10,21 +10,25 @@ const GithubLogin = ({ content }) => {
   const { setUserData, setIsAuth, isLoading, setIsLoading, isAuth } = useContext(MyContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Only fetch user data if not authenticated and still fetchingUser
+  const fetchData = async () => {
     if (!isAuth) {
-      api.get('/user')
-        .then(response => {
-          setIsAuth(true);
-          setUserData(response.data);
-          navigate('/');
-        })
-        .catch(error => {
-          console.error("Error fetching user data:", error);
-        });
-      setIsLoading(false);
+      try {
+        const response = await api.get('/user');
+        setIsAuth(true);
+        setUserData(response.data);
+        console.log('User data:', response.data);
+        navigate('/');
+      } catch (error) {
+        console.log("Error fetching user data:", error);
+      } finally {
+        setIsLoading(false);
+      }
     }
-  }, [isAuth]);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   function redirectToGitHub() {
     const client_id = "Ov23li0ZlRzgtpENXAF1";
@@ -47,7 +51,7 @@ const GithubLogin = ({ content }) => {
             <FontAwesomeIcon icon={faArrowRight} /> Go To Dashboard
           </Link>
         </div>
-        : <div className='login-home' onClick={redirectToGitHub}>
+        :<div className='login-home' onClick={redirectToGitHub}>
           <FontAwesomeIcon icon={faGithub} /> {content}
         </div>
       }

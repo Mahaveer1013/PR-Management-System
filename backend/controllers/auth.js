@@ -41,11 +41,13 @@ export const githubCallback = async (req, res) => {
     const myData = {
       id: userData.id,
       username: userData.login,
+      name: userData.name
     }
 
-    const accessToken = jwt.sign(myData, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const accessToken = generateAccessToken(myData)
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
+      maxAge: 3600000,
       //secure: false, // Set 'secure' to true in production (requires HTTPS)
       //sameSite: 'none', // Set 'sameSite' to 'none' for cross-site cookies
     });
@@ -53,6 +55,7 @@ export const githubCallback = async (req, res) => {
     const refreshToken = generateRefreshToken(myData)
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
+      maxAge: 2592000000,
       //secure: false, // Set 'secure' to true in production (requires HTTPS)
       //sameSite: 'none', // Set 'sameSite' to 'none' for cross-site cookies
     });
@@ -65,33 +68,21 @@ export const githubCallback = async (req, res) => {
   }
 }
 
-export const refreshToken = (req, res) => {
-  const refreshToken = req.cookies.refreshToken;
-  
-  if (!refreshToken) {
-    return res.status(401).json({ message: 'Refresh token not found' });
-  }
-  
-  jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(403).json({ message: 'Refresh token expired or invalid' });
-    }
-    
-    const accessToken = generateAccessToken({ id: decoded.id, username: decoded.username });
-    console.log(refreshToken);
-    
-      res.cookie('accessToken', accessToken, {
-          httpOnly: true,
-          //secure: true, // Set 'secure' to true in production (requires HTTPS)
-          //sameSite: 'none', // Set 'sameSite' to 'none' for cross-site cookies
-      });
-
-      res.json({ accessToken });
+export const logout = async (req, res) => {
+  res.cookie('accessToken', null, {
+    maxAge: -1,
+    httpOnly: true,
   });
+  res.cookie('refreshToken', null, {
+    maxAge: -1,
+    httpOnly: true,
+  });
+  console.log({ message: 'logout succesfull' });
+  res.status(200).json({ message: 'logout succesfull' });
 }
 
-function generateAccessToken(payload) {
-  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '10s' });
+export function generateAccessToken(payload) {
+  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 }
 
 function generateRefreshToken(payload) {

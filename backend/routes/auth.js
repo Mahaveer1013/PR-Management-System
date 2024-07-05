@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { githubCallback, refreshToken } from '../controllers/auth.js';
+import { githubCallback, logout } from '../controllers/auth.js';
 
 const router = Router();
 
 router.get('/github/callback', githubCallback);
 
-router.post('/refreshToken', refreshToken);
+router.get('/logout', logout);
 
 export default router;
