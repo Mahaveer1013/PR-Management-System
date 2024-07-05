@@ -31,7 +31,7 @@ const GithubLogin = ({ content }) => {
 
   function redirectToGitHub() {
     const client_id = "Ov23li0ZlRzgtpENXAF1";
-    const redirect_uri = "http://localhost:5000/auth/github/callback";
+    const redirect_uri = `${process.env.REACT_APP_URL}/auth/github/callback`;
     const scope = "read:user";
     const state = "Secret_State"; // Add state for security
     const authUrl = `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}`;
